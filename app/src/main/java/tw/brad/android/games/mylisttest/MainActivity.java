@@ -55,14 +55,44 @@ public class MainActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    Intent it = new Intent(MainActivity.this, Page2Activity.class);
-                    startActivity(it);
+                Intent it;
+                switch (position){
+                    case 0:
+                        it = new Intent(MainActivity.this, Page2Activity.class);
+                        startActivityForResult(it, 456);
+                        break;
+                    case 1:
+                        it = new Intent(MainActivity.this, Page3Activity.class);
+                        startActivityForResult(it, 123);
+                        break;
                 }
             }
         });
 
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i("brad", "OK:" + requestCode + ":" + resultCode);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("brad", "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("brad", "onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("brad", "onRestart");
     }
 
     public void addData(View view){

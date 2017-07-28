@@ -50,9 +50,15 @@ public class Page2Activity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView== null){
-                convertView = inflater.inflate(R.layout.layout_item2, null);
-                TextView tv = (TextView) (convertView.findViewById(R.id.item2_tv));
-                tv.setText(data[position]);
+                if (position % 2 == 0) {
+                    convertView = inflater.inflate(R.layout.layout_item2, null);
+                    TextView tv = (TextView) (convertView.findViewById(R.id.item2_tv));
+                    tv.setText(data[position]);
+                }else{
+                    convertView = inflater.inflate(R.layout.layout_item3, null);
+                    TextView tv = (TextView) (convertView.findViewById(R.id.item3_tv));
+                    tv.setText(data[position]);
+                }
             }
             return convertView;
         }
