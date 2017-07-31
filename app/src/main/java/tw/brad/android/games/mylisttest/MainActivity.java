@@ -75,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.i("brad", "OK:" + requestCode + ":" + resultCode);
+        if (requestCode == 123){
+            Log.i("brad", data.getStringExtra("key"));
+            
+        }
+
+
     }
 
     @Override
